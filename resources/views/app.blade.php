@@ -7,6 +7,6 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    This is my porto
+    This is my portofolio
 </body>
 </html>
