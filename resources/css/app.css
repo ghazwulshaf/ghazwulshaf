@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .nav-item {
+        @apply hover:text-primary border-b-0 hover:border-b-2 border-primary transition duration-300 ease-out
+    }
+    .nav-item.active {
+        @apply text-primary border-b-2
+    }
+
+    .btn-outline {
+        @apply inline-block relative border-2 border-primary text-primary px-6 py-1 z-10
+            before:absolute before:-z-10 before:top-0 before:bottom-0 before:left-0 before:w-0 before:bg-primary/60
+            before:transition-all before:duration-300 before:ease-linear
+            hover:before:w-full hover:text-white
+    }
+}
