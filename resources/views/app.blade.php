@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghazwul Shaf</title>
     @vite('resources/css/app.css')
+    @stack('styles')
+    <script src="https://kit.fontawesome.com/53790a54cf.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    This is my portofolio
+<body class="relative">
+    @yield('children')
+
+    @stack('scripts')
 </body>
 </html>
