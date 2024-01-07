@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,5 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard.index');
-    });
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 });

@@ -17,7 +17,7 @@
     </div>
     <div class="grid grid-cols-2 gap-6">
         <div class="flex gap-4">
-            <div class="block aspect-[3/2] basis-1/2 bg-cover bg-center bg-primary"></div>
+            <div class="block aspect-[3/2] basis-1/2 bg-cover bg-center bg-primary-500"></div>
             <div class="block relative basis-1/2">
                 <span class="block text-lg font-semibold">Nama Proyek</span>
                 <p class="absolute bottom-0 left-0 right-0 text-justify line-clamp-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non repudiandae voluptatum accusantium harum sequi atque delectus laudantium tempora commodi itaque voluptas aliquid quo praesentium, illo animi. Quo repudiandae ad eum!</p>
