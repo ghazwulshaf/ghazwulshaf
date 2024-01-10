@@ -1,4 +1,4 @@
-<section class="{{ isset($class) ? $class : '' }} px-6 space-y-4">
+<section class="{{ isset($class) ? $class : '' }} h-full px-6 space-y-4">
     <a href="#" class="block pt-6 pb-4 border-b-2">
         <button class="block w-full py-3 border rounded text-2xl font-semibold shadow">Ghazwul Shaf</button>
     </a>
