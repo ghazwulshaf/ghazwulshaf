@@ -4,16 +4,26 @@
 
 @layer components {
     .nav-item {
-        @apply hover:text-primary border-b-0 hover:border-b-2 border-primary transition duration-300 ease-out
+        @apply hover:text-primary-500 border-b-0 hover:border-b-2 border-primary-500 transition duration-300 ease-out
     }
     .nav-item.active {
-        @apply text-primary border-b-2
+        @apply text-primary-500 border-b-2
     }
 
     .btn-outline {
-        @apply inline-block relative border-2 border-primary text-primary px-6 py-1 z-10
-            before:absolute before:-z-10 before:top-0 before:bottom-0 before:left-0 before:w-0 before:bg-primary/60
+        @apply inline-block relative border-2 border-primary-500 text-primary-500 px-6 py-1 z-10
+            before:absolute before:-z-10 before:top-0 before:bottom-0 before:left-0 before:w-0 before:bg-primary-500/60
             before:transition-all before:duration-300 before:ease-linear
             hover:before:w-full hover:text-white
+    }
+
+    .dash-item {
+        @apply w-full px-4 py-3 rounded
+    }
+    .dash-item.active, .dash-item:hover {
+        @apply bg-primary-500 text-white
+    }
+    .dash-item i {
+        @apply w-4 mr-3
     }
 }
