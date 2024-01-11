@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Dashboard\AdminUserController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -31,4 +32,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/user', [AdminUserController::class, 'index'])->name('admin.user');
 });
 
-Route::resource('accounts', AccountController::class);
+Route::resources([
+    'accounts' => AccountController::class,
+    'category' => CategoryController::class,
+]);
