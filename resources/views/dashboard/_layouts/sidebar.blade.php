@@ -4,8 +4,10 @@
     </a>
     <div>
         <ul class="flex flex-col gap-2 *:dash-item">
-            <a href="#" class="active"><li><i class="fa-solid fa-house"></i> Dashboard</li></a>
-            <a href="#"><li><i class="fa-solid fa-user"></i> User</li></a>
+            <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard*') ? 'active' : '' }}">
+                <li><i class="fa-solid fa-house"></i> Dashboard</li></a>
+            <a href="{{ route('admin.user') }}" class="{{ request()->routeIs('admin.user*') ? 'active' : '' }}">
+                <li><i class="fa-solid fa-user"></i> User</li></a>
             <a href="#"><li><i class="fa-solid fa-users"></i> Team</li></a>
             <a href="#"><li><i class="fa-solid fa-align-left"></i> Profile</li></a>
             <a href="#"><li><i class="fa-solid fa-image"></i> Portofolio</li></a>

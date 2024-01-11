@@ -8,7 +8,7 @@
     @stack('styles')
     <script src="https://kit.fontawesome.com/53790a54cf.js" crossorigin="anonymous"></script>
 </head>
-<body class="relative">
+<body class="relative min-h-screen">
     @yield('children')
 
     @stack('scripts')
