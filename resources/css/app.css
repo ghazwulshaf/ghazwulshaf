@@ -26,4 +26,22 @@
     .dash-item i {
         @apply w-4 mr-3
     }
+
+    .dash-line {
+        @apply block content-[''] w-full h-0.5 bg-gray-300
+    }
+
+    .dash-label {
+        @apply block text-sm text-gray-500
+    }
+    .dash-input {
+        @apply block w-full px-2 py-1 border rounded read-only:bg-gray-50 focus-within:outline-blue-500 read-only:focus-within:outline-gray-950
+    }
+    .dash-button {
+        @apply inline-block px-4 py-2 text-sm rounded hover:shadow
+    }
+
+    button i {
+        @apply inline-block me-2
+    }
 }

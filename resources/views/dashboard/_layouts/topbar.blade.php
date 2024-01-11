@@ -1,4 +1,4 @@
-<section class="{{ isset($class) ? $class : '' }} flex justify-between items-center">
+<section class="{{ isset($class) ? $class : '' }} flex justify-between items-center bg-white">
     <div>
         <span class="block text-xl font-semibold">Dashboard</span>
     </div>

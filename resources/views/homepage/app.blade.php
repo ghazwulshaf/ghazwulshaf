@@ -14,15 +14,6 @@
 
 @push('scripts')
 <script>
-    let screenHeight = screen.height
-    let bodyHeight = document.body.offsetHeight
-
-    if (bodyHeight < screenHeight) {
-        document.body.classList.add("h-screen")
-    } else {
-        document.body.classList.remove("h-screen")
-    }
-
     function toTop() {
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
