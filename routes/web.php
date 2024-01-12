@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Dashboard\AdminPortofolioController;
 use App\Http\Controllers\Dashboard\AdminProfileController;
 use App\Http\Controllers\Dashboard\AdminUserController;
 use App\Http\Controllers\Dashboard\DashboardController;
@@ -33,11 +34,18 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth' ,'prefix' => 'admin'], function () {
     Route::get('', function () { return redirect()->route('admin.dashboard'); })->name('admin');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('/user', [AdminUserController::class, 'index'])->name('admin.user');
+
+    // region admin user
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('', [AdminUserController::class, 'index'])->name('admin.user');
+        Route::resource('accounts', AccountController::class)->only(['store', 'update', 'destroy']);
+        Route::resource('categories', CategoryController::class)->only(['store', 'update', 'destroy']);
+    });
     Route::get('/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
+    Route::get('/portofolio', [AdminPortofolioController::class, 'index'])->name('admin.portofolio');
 });
 
-Route::resources([
-    'accounts' => AccountController::class,
-    'category' => CategoryController::class,
-]);
+// Route::resources([
+//     'accounts' => AccountController::class,
+//     'category' => CategoryController::class,
+// ]);

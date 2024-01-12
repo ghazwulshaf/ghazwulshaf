@@ -121,12 +121,12 @@
             </div>
             <div class="w-full">
                 {{-- Form for delete data :hidden --}}
-                <form id="category-{{ $category['id'] }}-delete-form" action="{{ route('category.destroy', $category['id']) }}" method="POST" class="hidden">
+                <form id="category-{{ $category['id'] }}-delete-form" action="{{ route('categories.destroy', $category['id']) }}" method="POST" class="hidden">
                     @method('DELETE')
                     @csrf
                 </form>
                 {{-- Form for edit data --}}
-                <form id="category-{{ $category['id'] }}-edit-form" action="{{ route('category.update', $category['id']) }}" method="POST" enctype="multipart/form-data" class="space-y-2 *:space-y-1">
+                <form id="category-{{ $category['id'] }}-edit-form" action="{{ route('categories.update', $category['id']) }}" method="POST" enctype="multipart/form-data" class="space-y-2 *:space-y-1">
                     @method('PUT')
                     @csrf
                     <input type="hidden" name="category-{{ $category['id'] }}-image-old" value="{{ $category['path'] }}">
@@ -166,7 +166,7 @@
                 <img id="category-new-image" src="" alt="" class="contain">
             </div>
             <div class="w-full">
-                <form id="category-new" action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data" class="space-y-2 *:space-y-1">
+                <form id="category-new" action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data" class="space-y-2 *:space-y-1">
                     @csrf
                     <div>
                         <label for="category-new-name" class="dash-label">Category Name</label>

@@ -9,6 +9,11 @@ class AdminProfileController extends Controller
 {
     public function index()
     {
-        return view('dashboard.profile.index');
+        $datas = [
+            'pageTitle' => 'Profile',
+            'title' => 'Profile',
+        ];
+
+        return view('dashboard.profile.index', $datas);
     }
 }

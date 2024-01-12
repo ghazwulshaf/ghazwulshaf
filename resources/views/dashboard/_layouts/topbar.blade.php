@@ -1,6 +1,6 @@
 <section class="{{ isset($class) ? $class : '' }} flex justify-between items-center bg-white">
     <div>
-        <span class="block text-xl font-semibold">Dashboard</span>
+        <span class="block text-xl font-semibold">{{ $title }}</span>
     </div>
     <div class="flex items-center gap-2">
         <span class="block px-2 py-1 border rounded">Admin</span>
