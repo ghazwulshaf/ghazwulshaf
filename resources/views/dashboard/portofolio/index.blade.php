@@ -19,7 +19,7 @@
         </div>
         <button class="dash-action active"><i class="fa-solid fa-border-all"></i></button>
         <button class="dash-action"><i class="fa-solid fa-table-list"></i></button>
-        <a href="#" class="dash-action flex items-center bg-primary-500 text-white"><i class="fa-solid fa-plus"></i></a>
+        <a href="{{ route('admin.portofolio.create') }}" class="dash-action flex items-center bg-primary-500 text-white"><i class="fa-solid fa-plus"></i></a>
     </div>
     {{-- List Contents --}}
     <div class="w-full grid grid-cols-2 gap-4">

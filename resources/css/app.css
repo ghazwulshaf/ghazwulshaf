@@ -38,7 +38,7 @@
         @apply p-4 bg-white border rounded
     }
     .dash-label {
-        @apply block text-sm text-gray-500
+        @apply block text-sm text-gray-700
     }
     .dash-input {
         @apply block w-full px-2 py-1 border rounded read-only:bg-gray-50 focus-within:outline-blue-500 read-only:focus-within:outline-gray-950

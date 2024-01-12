@@ -1,5 +1,8 @@
 <section class="{{ isset($class) ? $class : '' }} flex justify-between items-center bg-white">
-    <div>
+    <div class="flex items-center gap-4">
+        @isset($isSubPage)
+            <a href="{{ url()->previous() }}"><i class="fa-solid fa-angle-left"></i></a>
+        @endisset
         <span class="block text-xl font-semibold">{{ $title }}</span>
     </div>
     <div class="flex items-center gap-2">

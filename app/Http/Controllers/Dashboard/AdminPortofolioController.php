@@ -19,4 +19,18 @@ class AdminPortofolioController extends Controller
 
         return view('dashboard.portofolio.index', $datas);
     }
+
+    /**
+     * Fungsi untuk menampilkan halaman admin tambah portofolio
+     */
+    public function create()
+    {
+        $datas = [
+            'isSubPage' => true,
+            'pageTitle' => 'Add Portofolio',
+            'title' => 'Add Portofolio',
+        ];
+
+        return view('dashboard.portofolio.create', $datas);
+    }
 }

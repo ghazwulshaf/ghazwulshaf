@@ -25,27 +25,29 @@ Route::get('/', function () {
     return view('homepage.home.index');
 });
 
+// region authentication
 Route::group(['prefix' => 'auth'], function () {
     Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
     Route::post('/login', [LoginController::class, 'authenticate'])->name('auth.login.confirm');
     Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout');
 });
 
+// region admin
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth' ,'prefix' => 'admin'], function () {
     Route::get('', function () { return redirect()->route('admin.dashboard'); })->name('admin');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
-    // region admin user
+    // region user
     Route::group(['prefix' => 'user'], function () {
         Route::get('', [AdminUserController::class, 'index'])->name('admin.user');
         Route::resource('accounts', AccountController::class)->only(['store', 'update', 'destroy']);
         Route::resource('categories', CategoryController::class)->only(['store', 'update', 'destroy']);
     });
     Route::get('/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
-    Route::get('/portofolio', [AdminPortofolioController::class, 'index'])->name('admin.portofolio');
-});
 
-// Route::resources([
-//     'accounts' => AccountController::class,
-//     'category' => CategoryController::class,
-// ]);
+    // region portofolio
+    Route::group(['prefix' => 'portofolio'], function () {
+        Route::get('', [AdminPortofolioController::class, 'index'])->name('admin.portofolio');
+        Route::get('/add', [AdminPortofolioController::class, 'create'])->name('admin.portofolio.create');
+    });
+});
