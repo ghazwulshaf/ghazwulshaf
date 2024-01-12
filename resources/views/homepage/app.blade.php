@@ -6,7 +6,7 @@
 @yield('content')
 @include('homepage._layouts.footer')
 
-<button onclick="toTop()" class="fixed right-4 bottom-4 p-4 rounded bg-primary text-white">
+<button onclick="toTop()" class="fixed right-4 bottom-4 p-4 rounded bg-primary-500 text-white">
     <i class="fa-solid fa-arrow-up-long"></i>
 </button>
 

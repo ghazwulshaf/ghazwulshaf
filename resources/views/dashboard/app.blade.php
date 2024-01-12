@@ -12,5 +12,18 @@
             @yield('content')
         </div>
     </div>
+    
+    <button onclick="toTop()" class="fixed right-2 bottom-6 p-3 rounded bg-gray-600 text-white text-xs hover:shadow">
+        <i class="fa-solid fa-arrow-up-long"></i>
+    </button>
 </main>
 @endsection
+
+@push('scripts')
+<script>
+    function toTop() {
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+    }
+</script>
+@endpush

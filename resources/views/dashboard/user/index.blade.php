@@ -70,7 +70,7 @@
 
             {{-- Button Add Account --}}
             <div id="btn-add-account" class="flex justify-end text-sm !mt-4">
-                <button onclick="showFormAddAccount()"><i class="fa-regular fa-square-plus"></i>Add Account</button>
+                <button onclick="showFormAddAccount()" class="btn"><i class="fa-regular fa-square-plus"></i>Add Account</button>
             </div>
 
             {{-- Form Add Account --}}
@@ -157,7 +157,7 @@
 
         {{-- Button Add Category --}}
         <div id="btn-add-category" class="flex justify-end text-sm !mt-4">
-            <button onclick="showFormAddCategory()"><i class="fa-regular fa-square-plus"></i>Add Category</button>
+            <button onclick="showFormAddCategory()" class="btn"><i class="fa-regular fa-square-plus"></i>Add Category</button>
         </div>
 
         {{-- Form Add Category --}}
