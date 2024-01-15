@@ -44,7 +44,7 @@
         @apply block w-full px-2 py-1 border rounded read-only:bg-gray-50 focus-within:outline-blue-500 read-only:focus-within:outline-gray-950
     }
     .dash-button {
-        @apply inline-block px-4 py-2 text-sm rounded hover:shadow
+        @apply inline-block px-4 py-2 text-sm text-nowrap rounded hover:shadow
     }
     .dash-button i {
         @apply inline-block me-2
@@ -63,7 +63,7 @@
     }
 
     .dash-page-item {
-        @apply block px-3 py-1 bg-primary-100 hover:bg-primary-500 hover:text-white hover:shadow rounded
+        @apply block px-3 py-1 bg-gray-200 hover:bg-primary-500 hover:text-white hover:shadow rounded
     }
     .dash-page-item.active {
         @apply bg-primary-500 text-white

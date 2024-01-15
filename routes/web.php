@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\AdminPortofolioController;
 use App\Http\Controllers\Dashboard\AdminProfileController;
 use App\Http\Controllers\Dashboard\AdminUserController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\PortofolioController;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Constraint\LogicalNot;
 
@@ -40,14 +41,17 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth' ,'prefix' => 'admin
     // region user
     Route::group(['prefix' => 'user'], function () {
         Route::get('', [AdminUserController::class, 'index'])->name('admin.user');
-        Route::resource('accounts', AccountController::class)->only(['store', 'update', 'destroy']);
-        Route::resource('categories', CategoryController::class)->only(['store', 'update', 'destroy']);
     });
     Route::get('/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
-
+    
     // region portofolio
     Route::group(['prefix' => 'portofolio'], function () {
         Route::get('', [AdminPortofolioController::class, 'index'])->name('admin.portofolio');
+        Route::get('/search', [AdminPortofolioController::class, 'search'])->name('admin.portofolio.search');
         Route::get('/add', [AdminPortofolioController::class, 'create'])->name('admin.portofolio.create');
     });
 });
+
+Route::resource('accounts', AccountController::class)->only(['store', 'update', 'destroy']);
+Route::resource('categories', CategoryController::class)->only(['store', 'update', 'destroy']);
+Route::resource('portofolios', PortofolioController::class)->only(['store', 'destroy']);
