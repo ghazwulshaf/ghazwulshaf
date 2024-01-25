@@ -13,9 +13,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        Inertia::setRootView('react.dashboard');
+        $datas = [
+            'pageTitle' => 'Dashboard',
+        ];
 
+        return view('dashboard.index', $datas);
+
+        // Inertia::setRootView('react.dashboard');
         // return Inertia::render('Dashboard/Index');
-        return view('dashboard.index');
     }
 }

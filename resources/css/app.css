@@ -11,10 +11,17 @@
     }
 
     .btn-outline {
-        @apply inline-block relative border-2 border-primary-500 text-primary-500 px-6 py-1 z-10
-            before:absolute before:-z-10 before:top-0 before:bottom-0 before:left-0 before:w-0 before:bg-primary-500/60
+        @apply inline-block relative border-2 border-gray-950 text-gray-950 px-6 py-1 z-10
+            before:absolute before:-z-10 before:top-0 before:bottom-0 before:left-0 before:w-0 before:bg-gray-950/60
             before:transition-all before:duration-300 before:ease-linear
             hover:before:w-full hover:text-white
+    }
+    .btn-outline-dark {
+        @apply btn-outline border-primary-500 text-white before:bg-primary-500/60
+    }
+
+    .btn i {
+        @apply inline-block me-2
     }
 
     .dash-item {
@@ -31,17 +38,44 @@
         @apply block content-[''] w-full h-0.5 bg-gray-300
     }
 
+    .dash-container {
+        @apply p-4 bg-white border rounded
+    }
+    .dash-container tr {
+        @apply border-b last:border-none
+    }
+    .dash-container td {
+        @apply p-2
+    }
     .dash-label {
-        @apply block text-sm text-gray-500
+        @apply block text-sm text-gray-700
     }
     .dash-input {
         @apply block w-full px-2 py-1 border rounded read-only:bg-gray-50 focus-within:outline-blue-500 read-only:focus-within:outline-gray-950
     }
     .dash-button {
-        @apply inline-block px-4 py-2 text-sm rounded hover:shadow
+        @apply inline-block px-4 py-2 text-sm text-nowrap rounded hover:shadow
+    }
+    .dash-button i {
+        @apply inline-block me-2
+    }
+    .dash-button-ctr {
+        @apply px-3 py-4 text-xs rounded hover:shadow
+    }
+    .dash-badge {
+        @apply block w-fit px-3 py-1 text-xs rounded
+    }
+    .dash-action {
+        @apply block text-xs px-3 bg-gray-100 border rounded hover:shadow
+    }
+    .dash-action.active {
+        @apply bg-gray-400
     }
 
-    button i {
-        @apply inline-block me-2
+    .dash-page-item {
+        @apply block px-3 py-1 bg-gray-200 hover:bg-primary-500 hover:text-white hover:shadow rounded
+    }
+    .dash-page-item.active {
+        @apply bg-primary-500 text-white
     }
 }

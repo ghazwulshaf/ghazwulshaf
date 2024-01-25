@@ -36,6 +36,8 @@ class AdminUserController extends Controller
         $categories = $this->categoryRepo->getAll();
 
         $datas = [
+            'pageTitle' => 'User',
+            'title' => 'User',
             'accounts' => $accounts,
             'categories' => $categories,
         ];

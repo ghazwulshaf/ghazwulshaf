@@ -76,7 +76,9 @@ class CategoryController extends Controller
         $newData = [];
 
         if ($file) {
-            Storage::delete($oldCategory['path']);
+            if ($oldCategory['path']) {
+                Storage::delete($oldCategory['path']);
+            }
 
             $fileName = date('Y-m-d').'-'.Str::of($name)->slug('-').'.'.$file->extension();
             $path = $file->storeAs('categories', $fileName, 'public');

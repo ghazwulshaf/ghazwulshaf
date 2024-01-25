@@ -40,16 +40,16 @@
                         @method('PUT')
                         @csrf
                         <div>
-                            <label for="account-{{ $account['id'] }}-name" class="dash-label">Account Name</label>
-                            <input type="text" name="account-{{ $account['id'] }}-name" id="account-{{ $account['id'] }}-name" class="dash-input" value="{{ $account['name'] }}" required readonly>
+                            <label for="account-{{ $account['id'] }}-name" class="dash-label">Account's Name</label>
+                            <input type="text" name="account-{{ $account['id'] }}-name" id="account-{{ $account['id'] }}-name" class="dash-input" placeholder="Your account's name" value="{{ $account['name'] }}" required readonly>
                         </div>
                         <div>
-                            <label for="account-{{ $account['id'] }}-link" class="dash-label">Account Link</label>
-                            <input type="text" name="account-{{ $account['id'] }}-link" id="account-{{ $account['id'] }}-link" class="dash-input" value="{{ $account['link'] }}" required readonly>
+                            <label for="account-{{ $account['id'] }}-link" class="dash-label">Account's Link</label>
+                            <input type="text" name="account-{{ $account['id'] }}-link" id="account-{{ $account['id'] }}-link" class="dash-input" placeholder="Your account's link" value="{{ $account['link'] }}" required readonly>
                         </div>
                         <div>
-                            <label for="account-{{ $account['id'] }}-icon" class="dash-label">Account Icon</label>
-                            <input type="text" name="account-{{ $account['id'] }}-icon" id="account-{{ $account['id'] }}-icon" class="dash-input" value="{{ $account['icon'] }}" onchange="changeAccountImage('account-{{ $account['id'] }}')" required readonly>
+                            <label for="account-{{ $account['id'] }}-icon" class="dash-label">Account's Icon</label>
+                            <input type="text" name="account-{{ $account['id'] }}-icon" id="account-{{ $account['id'] }}-icon" class="dash-input" placeholder="Your account's icon" value="{{ $account['icon'] }}" onchange="changeAccountImage('account-{{ $account['id'] }}')" required readonly>
     
                             <p class="!mt-0 text-xs text-gray-500">Please, get the icon from <a href="https://fontawesome.com/" target="blank" class="font-semibold text-primary-500">FontAwesome</a> with html tag</p>
                         </div>
@@ -70,7 +70,7 @@
 
             {{-- Button Add Account --}}
             <div id="btn-add-account" class="flex justify-end text-sm !mt-4">
-                <button onclick="showFormAddAccount()"><i class="fa-regular fa-square-plus"></i>Add Account</button>
+                <button onclick="showFormAddAccount()" class="btn"><i class="fa-regular fa-square-plus"></i>Add Account</button>
             </div>
 
             {{-- Form Add Account --}}
@@ -82,16 +82,16 @@
                     <form id="account-new" action="{{ route('accounts.store') }}" method="POST" class="space-y-2 *:space-y-1">
                         @csrf
                         <div>
-                            <label for="account-new-name" class="dash-label">Account Name</label>
-                            <input type="text" name="account-new-name" id="account-new-name" class="dash-input" required>
+                            <label for="account-new-name" class="dash-label">Account's Name</label>
+                            <input type="text" name="account-new-name" id="account-new-name" class="dash-input" placeholder="Your account's name" required>
                         </div>
                         <div>
-                            <label for="account-new-link" class="dash-label">Account Link</label>
-                            <input type="text" name="account-new-link" id="account-new-link" class="dash-input" required>
+                            <label for="account-new-link" class="dash-label">Account's Link</label>
+                            <input type="text" name="account-new-link" id="account-new-link" class="dash-input" placeholder="Your account's link" required>
                         </div>
                         <div>
-                            <label for="account-new-icon" class="dash-label">Account Icon</label>
-                            <input type="text" name="account-new-icon" id="account-new-icon" class="dash-input" onchange="changeAccountImage('account-new')" required>
+                            <label for="account-new-icon" class="dash-label">Account's Icon</label>
+                            <input type="text" name="account-new-icon" id="account-new-icon" class="dash-input" placeholder="Your account's icon" onchange="changeAccountImage('account-new')" required>
     
                             <p class="!mt-0 text-xs text-gray-500">Please, get the icon from <a href="https://fontawesome.com/" target="blank" class="font-semibold text-primary-500">FontAwesome</a> with html tag</p>
                         </div>
@@ -121,21 +121,21 @@
             </div>
             <div class="w-full">
                 {{-- Form for delete data :hidden --}}
-                <form id="category-{{ $category['id'] }}-delete-form" action="{{ route('category.destroy', $category['id']) }}" method="POST" class="hidden">
+                <form id="category-{{ $category['id'] }}-delete-form" action="{{ route('categories.destroy', $category['id']) }}" method="POST" class="hidden">
                     @method('DELETE')
                     @csrf
                 </form>
                 {{-- Form for edit data --}}
-                <form id="category-{{ $category['id'] }}-edit-form" action="{{ route('category.update', $category['id']) }}" method="POST" enctype="multipart/form-data" class="space-y-2 *:space-y-1">
+                <form id="category-{{ $category['id'] }}-edit-form" action="{{ route('categories.update', $category['id']) }}" method="POST" enctype="multipart/form-data" class="space-y-2 *:space-y-1">
                     @method('PUT')
                     @csrf
                     <input type="hidden" name="category-{{ $category['id'] }}-image-old" value="{{ $category['path'] }}">
                     <div>
-                        <label for="category-{{ $category['id'] }}-name" class="dash-label">Category Name</label>
-                        <input type="text" name="category-{{ $category['id'] }}-name" id="category-{{ $category['id'] }}-name" class="dash-input" value="{{ $category['name'] }}" required readonly>
+                        <label for="category-{{ $category['id'] }}-name" class="dash-label">Category's Name</label>
+                        <input type="text" name="category-{{ $category['id'] }}-name" id="category-{{ $category['id'] }}-name" class="dash-input" placeholder="Your category's name" value="{{ $category['name'] }}" required readonly>
                     </div>
                     <div id="category-{{ $category['id'] }}-file-input" class="hidden">
-                        <label for="category-{{ $category['id'] }}-file" class="dash-label">Category Image File</label>
+                        <label for="category-{{ $category['id'] }}-file" class="dash-label">Category's Image File</label>
                         <input type="file" name="category-{{ $category['id'] }}-file" id="category-{{ $category['id'] }}-file" class="dash-input text-sm" value="{{ asset('storage/'.$category['path']) }}" onchange="changeCategoryImage('category-{{ $category['id'] }}')" disabled>
 
                         <p class="!mt-0 text-xs text-gray-500">Please, get the image from <a href="https://www.flaticon.com/" target="blank" class="font-semibold text-primary-500">Flaticon</a> with png file</p>
@@ -157,7 +157,7 @@
 
         {{-- Button Add Category --}}
         <div id="btn-add-category" class="flex justify-end text-sm !mt-4">
-            <button onclick="showFormAddCategory()"><i class="fa-regular fa-square-plus"></i>Add Category</button>
+            <button onclick="showFormAddCategory()" class="btn"><i class="fa-regular fa-square-plus"></i>Add Category</button>
         </div>
 
         {{-- Form Add Category --}}
@@ -166,14 +166,14 @@
                 <img id="category-new-image" src="" alt="" class="contain">
             </div>
             <div class="w-full">
-                <form id="category-new" action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data" class="space-y-2 *:space-y-1">
+                <form id="category-new" action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data" class="space-y-2 *:space-y-1">
                     @csrf
                     <div>
-                        <label for="category-new-name" class="dash-label">Category Name</label>
-                        <input type="text" name="category-new-name" id="category-new-name" class="dash-input" required>
+                        <label for="category-new-name" class="dash-label">Category's Name</label>
+                        <input type="text" name="category-new-name" id="category-new-name" class="dash-input" placeholder="Your category's name" required>
                     </div>
                     <div>
-                        <label for="category-new-file" class="dash-label">Category Image File</label>
+                        <label for="category-new-file" class="dash-label">Category's Image File</label>
                         <input type="file" name="category-new-file" id="category-new-file" class="dash-input text-sm" onchange="changeCategoryImage('category-new')" required>
 
                         <p class="!mt-0 text-xs text-gray-500">Please, get the image from <a href="https://www.flaticon.com/" target="blank" class="font-semibold text-primary-500">Flaticon</a> with png file</p>
