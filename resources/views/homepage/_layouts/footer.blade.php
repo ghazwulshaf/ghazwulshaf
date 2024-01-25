@@ -1,4 +1,4 @@
-<footer id="homepage-footer" class="absolute bottom-0 left-0 right-0 px-24 py-12 flex gap-12 bg-gray-900 text-white">
+<footer id="homepage-footer" class="absolute bottom-0 left-0 right-0 px-24 pt-36 pb-12 flex gap-12 bg-gray-900 bg-cover bg-center text-white" style="background-image: url({{ asset('assets/images/footer-background.png') }})">
     <div class="basis-6/12 space-y-4">
         <span class="block text-xl font-semibold">Ghazwul Shaf</span>
         <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam, nulla aut ut saepe, obcaecati minus porro reprehenderit consequuntur ipsam beatae a possimus facere debitis odio voluptatum eveniet optio! Perspiciatis, reiciendis.Nostrum, nam at alias consectetur inventore exercitationem et velit qui dolor adipisci tempora sunt voluptatem sint quas nemo laboriosam corrupti facere! Qui, vel soluta consequuntur dolor error doloremque assumenda quaerat.</p>

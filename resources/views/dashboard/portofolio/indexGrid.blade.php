@@ -19,3 +19,6 @@
     </div>
     @endforeach
 </div>
+
+{{-- List Pagination --}}
+{{ $datas->links() }}

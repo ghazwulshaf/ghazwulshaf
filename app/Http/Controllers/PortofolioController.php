@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Portofolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PortofolioController extends Controller
@@ -29,15 +30,17 @@ class PortofolioController extends Controller
      */
     public function store(Request $request)
     {
+        $name = $request->input('portofolio-new-name');
+
         $data = [
-            'name' => $request->input('portofolio-new-name'),
+            'name' => $name,
             'category_id' => $request->input('portofolio-new-category'),
         ];
 
         $file = $request->file('portofolio-new-file');
 
         if ($file) {
-            $name = $request->input('portofolio-new-name');
+            $name = $name;
             $fileName = date('Y-m-d').'-'.Str::of($name)->slug('-').'.'.$file->extension();
 
             $path = $file->storeAs('portofolios', $fileName, 'public');
@@ -77,7 +80,34 @@ class PortofolioController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $oldPortofolio = Portofolio::findOrFail($id)->first();
+
+        $name = $request->input('name');
+        $category = $request->input('category');
+        $file = $request->file('file');
+        $content = $request->input('content');
+
+        $newData = [
+            'name' => $name,
+            'category_id' => $category,
+            'content' => $content,
+        ];
+
+        if ($file) {
+            if ($oldPortofolio['path_image']) {
+                Storage::delete($oldPortofolio['path_image']);
+            }
+
+            $fileName = date('Y-m-d').'-'.Str::of($name)->slug('-').'.'.$file->extension();
+            $path = $file->storeAs('portofolios', $fileName, 'public');
+
+            $newData['path_image'] = $path;
+        }
+
+        Portofolio::findOrFail($id)
+            ->update($newData);
+
+        return redirect()->route('admin.portofolio.view', ['id' => $id]);
     }
 
     /**
@@ -87,6 +117,6 @@ class PortofolioController extends Controller
     {
         Portofolio::destroy($id);
 
-        return back();
+        return redirect()->route('admin.portofolio');
     }
 }

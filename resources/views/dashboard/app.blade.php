@@ -7,7 +7,7 @@
     </div>
     {{-- <div class="block content-[''] w-1/5 h-screen"></div> --}}
     <div class="w-4/5 flex flex-col">
-        @include('dashboard._layouts.topbar', ['class' => 'sticky top-0 w-full ps-6 pe-12 py-6 border-b', 'title' => isset($title) ? $title : 'Dashboard', 'isSubPage' => isset($isSubPage) ? $isSubPage : null])
+        @include('dashboard._layouts.topbar', ['class' => 'sticky z-10 top-0 w-full ps-6 pe-12 py-6 border-b', 'title' => isset($title) ? $title : 'Dashboard', 'isSubPage' => isset($isSubPage) ? $isSubPage : null])
         <div class="w-full h-full ps-6 pe-12 py-6 bg-gray-100">
             @yield('content')
         </div>

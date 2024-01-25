@@ -7,8 +7,10 @@ use App\Http\Controllers\Dashboard\AdminPortofolioController;
 use App\Http\Controllers\Dashboard\AdminProfileController;
 use App\Http\Controllers\Dashboard\AdminUserController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Homepage\HomepageHomeController;
 use App\Http\Controllers\PortofolioController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 use PHPUnit\Framework\Constraint\LogicalNot;
 
 /*
@@ -22,8 +24,10 @@ use PHPUnit\Framework\Constraint\LogicalNot;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage.home.index');
+Inertia::setRootView('react.app');
+
+Route::group(['prefix' => ''], function () {
+    Route::get('/', [HomepageHomeController::class, 'index'])->name('homepage.home');
 });
 
 // region authentication
@@ -47,11 +51,15 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth' ,'prefix' => 'admin
     // region portofolio
     Route::group(['prefix' => 'portofolio'], function () {
         Route::get('', [AdminPortofolioController::class, 'index'])->name('admin.portofolio');
+        Route::get('/sort', [AdminPortofolioController::class, 'sort'])->name('admin.portofolio.sort');
         Route::get('/search', [AdminPortofolioController::class, 'search'])->name('admin.portofolio.search');
+        Route::get('/mode', [AdminPortofolioController::class, 'mode'])->name('admin.portofolio.mode');
         Route::get('/add', [AdminPortofolioController::class, 'create'])->name('admin.portofolio.create');
+        Route::get('/{id}/view', [AdminPortofolioController::class, 'view'])->name('admin.portofolio.view');
+        Route::get('/{id}/edit', [AdminPortofolioController::class, 'edit'])->name('admin.portofolio.edit');
     });
 });
 
 Route::resource('accounts', AccountController::class)->only(['store', 'update', 'destroy']);
 Route::resource('categories', CategoryController::class)->only(['store', 'update', 'destroy']);
-Route::resource('portofolios', PortofolioController::class)->only(['store', 'destroy']);
+Route::resource('portofolios', PortofolioController::class)->only(['store', 'update', 'destroy']);

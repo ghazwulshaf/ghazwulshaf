@@ -11,11 +11,15 @@
     }
 
     .btn-outline {
-        @apply inline-block relative border-2 border-primary-500 text-primary-500 px-6 py-1 z-10
-            before:absolute before:-z-10 before:top-0 before:bottom-0 before:left-0 before:w-0 before:bg-primary-500/60
+        @apply inline-block relative border-2 border-gray-950 text-gray-950 px-6 py-1 z-10
+            before:absolute before:-z-10 before:top-0 before:bottom-0 before:left-0 before:w-0 before:bg-gray-950/60
             before:transition-all before:duration-300 before:ease-linear
             hover:before:w-full hover:text-white
     }
+    .btn-outline-dark {
+        @apply btn-outline border-primary-500 text-white before:bg-primary-500/60
+    }
+
     .btn i {
         @apply inline-block me-2
     }
@@ -36,6 +40,12 @@
 
     .dash-container {
         @apply p-4 bg-white border rounded
+    }
+    .dash-container tr {
+        @apply border-b last:border-none
+    }
+    .dash-container td {
+        @apply p-2
     }
     .dash-label {
         @apply block text-sm text-gray-700
