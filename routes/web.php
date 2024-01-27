@@ -8,6 +8,7 @@ use App\Http\Controllers\Dashboard\AdminProfileController;
 use App\Http\Controllers\Dashboard\AdminUserController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Homepage\HomepageHomeController;
+use App\Http\Controllers\Homepage\HomepageProjectsController;
 use App\Http\Controllers\PortofolioController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,6 +29,7 @@ Inertia::setRootView('react.app');
 
 Route::group(['prefix' => ''], function () {
     Route::get('/', [HomepageHomeController::class, 'index'])->name('homepage.home');
+    Route::get('/projects', [HomepageProjectsController::class, 'index'])->name('homepage.projects');
 });
 
 // region authentication

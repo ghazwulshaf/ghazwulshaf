@@ -7,11 +7,11 @@
             <div class="bg-white border rounded p-4 space-y-2">
                 <div>
                     <label for="full-name" class="dash-label">Full Name</label>
-                    <input type="text" name="full-name" id="full-name" value="Ghazwul Shaf" readonly>
+                    <input type="text" name="full-name" id="full-name" value="Ghazwul Shaf" class="dash-input" readonly>
                 </div>
                 <div>
                     <label for="username" class="dash-label">Username</label>
-                    <input type="text" name="username" id="username" value="ghazwulshaf" readonly>
+                    <input type="text" name="username" id="username" value="ghazwulshaf" class="dash-input" readonly>
                 </div>
             </div>
         </div>

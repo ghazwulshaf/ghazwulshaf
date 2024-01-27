@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    input {
+        @apply w-full px-3 py-2 border border-gray-500 rounded focus-within:outline-blue-500 placeholder:text-sm
+    }
+}
+
 @layer components {
     .nav-item {
         @apply hover:text-primary-500 border-b-0 hover:border-b-2 border-primary-500 transition duration-300 ease-out

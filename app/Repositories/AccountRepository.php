@@ -16,7 +16,14 @@ class AccountRepository
      */
     public function getAll(): array
     {
-        $datas = Account::all()->toArray();
+        $datas = Account::select([
+            'accounts.id',
+            'accounts.name',
+            'accounts.link',
+            'accounts.icon',
+        ])
+            ->get()
+            ->toArray();
 
         return $datas;
     }

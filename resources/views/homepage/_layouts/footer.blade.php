@@ -15,10 +15,9 @@
     <div class="basis-4/12 space-y-4">
         <span class="block font-semibold">Contact Me</span>
         <ul class="flex w-full items-center gap-4 *:text-4xl">
-            <li><i class="fa-brands fa-square-whatsapp"></i></li>
-            <li><i class="fa-brands fa-square-instagram"></i></li>
-            <li><i class="fa-brands fa-linkedin"></i></li>
-            <li><i class="fa-solid fa-square-envelope"></i></li>
+            @foreach ($accounts as $account)
+            <a href="{{ $account['link'] }}"><li>{!! $account['icon'] !!}</li></a>
+            @endforeach
         </ul>
     </div>
 </footer>

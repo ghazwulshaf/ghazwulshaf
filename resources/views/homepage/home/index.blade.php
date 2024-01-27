@@ -39,18 +39,12 @@
 
 <section class="px-24 py-24 bg-transparent">
     <ul class="flex w-full justify-center items-center gap-32 *:flex *:flex-col *:items-center *:gap-2">
+        @foreach ($categories as $category)
         <li>
-            <img src="{{ asset('assets/images/web.png') }}" alt="Website" class="h-12">
-            <span class="text-lg font-semibold">Web Developer</span>
+            <img src="{{ asset('storage/'.$category['image']) }}" alt="{{ $category['name'] }}" class="h-12">
+            <span class="text-lg font-semibold">{{ $category['name'] }}</span>
         </li>
-        <li>
-            <img src="{{ asset('assets/images/iot.png') }}" alt="IoT" class="h-12">
-            <span class="text-lg font-semibold">Internet of Things</span>
-        </li>
-        <li>
-            <img src="{{ asset('assets/images/artificial-intelligence.png') }}" alt="AI" class="h-12">
-            <span class="text-lg font-semibold">Artificial Intelligence</span>
-        </li>
+        @endforeach
     </ul>
 </section>
 @endsection
